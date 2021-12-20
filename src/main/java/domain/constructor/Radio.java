@@ -1,17 +1,41 @@
-package domain;
+package domain.constructor;
+
+import java.net.PortUnreachableException;
 
 public class Radio {
     private int currentRadioStation;
 
     public int getCurrentRadioStation() {
+
         return currentRadioStation;
     }
 
+    private int currentVolume;
+
+    public int getCurrentVolume() {
+
+        return currentVolume;
+    }
+
+
+        private int amountRadioStation = 10;
+
+        public int getAmountRadioStation () {
+            return amountRadioStation;
+        }
+
+    public Radio(int amountRadioStation) {
+        this.amountRadioStation = amountRadioStation;
+    }
+
+    public Radio () {
+    }
+
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > amountRadioStation) {
             this.currentRadioStation = 0;
         } else if (currentRadioStation < 0) {
-            this.currentRadioStation = 9;
+            this.currentRadioStation = amountRadioStation;
         } else {
             this.currentRadioStation = currentRadioStation;
         }
@@ -28,7 +52,7 @@ public class Radio {
     }
 
     public void setValidNumberRadioStation(int currentRadioStation) {
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > amountRadioStation) {
             System.out.println("Номер станции недопустим");
         } else if (currentRadioStation < 0) {
             System.out.println("Номер станции недопустим");
@@ -37,16 +61,9 @@ public class Radio {
         }
     }
 
-    private int currentVolume;
-
-    public int getCurrentVolume() {
-
-        return currentVolume;
-    }
-
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > 10) {
-            this.currentVolume = 10;
+        if (currentVolume > 100) {
+            this.currentVolume = 100;
         } else if (currentVolume < 0) {
             this.currentRadioStation = 0;
         } else {

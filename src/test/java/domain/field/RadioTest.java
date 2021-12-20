@@ -1,5 +1,6 @@
-package domain;
+package domain.field;
 
+import domain.field.Radio;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,9 +11,9 @@ class RadioTest {
     @Test
     public void currentRadioStation() {
         Radio radio = new Radio();
-        radio.setCurrentRadioStation(4);
+        radio.setCurrentRadioStation(6);
 
-        int expected = 4;
+        int expected = 6;
         int actual = radio.getCurrentRadioStation();
         assertEquals(expected, actual);
     }
